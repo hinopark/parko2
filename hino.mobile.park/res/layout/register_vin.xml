@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+
+    
+    
+<LinearLayout android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+
+
+<TextView
+    android:id="@+id/textView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Type"
+    android:layout_marginRight="10dp"
+    android:textSize="20sp"
+    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+<Spinner
+    android:id="@+id/spinnerMasterJenis"
+    
+   android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    android:layout_weight="1" 
+    android:textColor="#FF8B1500" android:gravity="center"
+    android:textSize="20sp"
+    android:padding="5dp"
+    android:spinnerMode="dropdown"
+    
+    android:layout_marginRight="10dp"
+    android:background="#FFB2B2"      
+     />
+
+</LinearLayout>
+
+
+</LinearLayout>

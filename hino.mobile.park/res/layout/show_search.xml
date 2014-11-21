@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+     android:id="@+id/radioSettingMap"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RadioButton android:id="@+id/radioMapStandar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map Standar"
+        />
+    <RadioButton android:id="@+id/radioMapSatelite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map Satelite"
+        />
+</RadioGroup>

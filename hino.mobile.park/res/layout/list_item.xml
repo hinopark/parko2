@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <!-- Product id (pid) - will be HIDDEN - used to pass to other activity -->
+    <TableLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#ffffff">
+        <TableRow
+                            android:id="@+id/tableRow2"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:padding="5dip">
+                            <TextView
+                                android:id="@+id/txtTableTitle" android:text="Car Information"
+                                 android:background="#dcdcdc"
+                                android:textColor="#000000" android:layout_span="3"
+                                android:padding="5dip" android:gravity="center"/>
+                            
+                           
+        </TableRow>    
+        
+        <TableRow
+                  android:id="@+id/rowVinNumber"
+                  android:padding="3dip"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content">
+                            <TextView
+        						android:id="@+id/pid"
+        					 	android:visibility="gone" />
+    						<TextView
+        						android:id="@+id/VINNUMBEROK"
+        						android:visibility="gone" />
+    <!-- Name Label -->
+    						<TextView
+        						android:id="@+id/labelVinNumber"
+        						android:text="Vin Number"
+        						android:width="40mm" />
+    						<TextView
+        						android:id="@+id/titik1"
+        						android:text=":"
+        						android:layout_marginRight="5dp" />
+    						<TextView
+        						android:id="@+id/name"
+        						
+         					/>
+        </TableRow>    
+        <TableRow
+                android:id="@+id/rowBrand"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:padding="3dip">
+    						<TextView
+        						android:id="@+id/labelBrand"
+        						android:text="Brand - Type"
+        						android:width="40mm" />
+    						<TextView
+        						android:id="@+id/titik2"
+        						android:text=":"
+        						android:layout_marginRight="5dp"
+        						 />
+   						 	<TextView
+        						android:id="@+id/brandnya" />
+     					       
+        </TableRow>    
+        <TableRow
+                            android:id="@+id/tableRow3"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:padding="5dip">
+                            <TextView
+                                android:id="@+id/txtParkirTitle" android:text="Parking Information"
+                                 android:background="#dcdcdc"
+                                android:textColor="#000000" android:layout_span="3"
+                                android:padding="5dip" android:gravity="center"/>
+                           
+        </TableRow>
+        <TableRow
+                  android:id="@+id/rowAreaParkir"
+                  android:padding="3dip"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content">
+                  <TextView
+        						android:id="@+id/labelAreaParkir"
+        						android:text="Geo Location"
+        						android:width="40mm" />
+    		      <TextView
+        						android:id="@+id/titik3"
+        						android:text=":"
+        						android:layout_marginRight="5dp" />
+    		      <TextView
+        						android:id="@+id/AreaParkirnyaGan" />
+                            
+        </TableRow>
+        <TableRow
+                  android:id="@+id/rowAreaParkir2"
+                  android:padding="3dip"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content">
+                  <TextView
+        						android:id="@+id/labelAreaParkir2"
+        						android:text="Geo Location"
+        						android:width="40mm"
+        						android:visibility="invisible" />
+    		      <TextView
+        						android:id="@+id/titik7"
+        						android:text=":"
+        						android:visibility="invisible"
+        						android:layout_marginRight="5dp" />
+    		      <TextView
+        						android:id="@+id/LongTxt" />
+                            
+        </TableRow>
+        <TableRow
+                  android:id="@+id/rowJamMasuk"
+                  android:padding="3dip"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content">
+                  <TextView
+        						android:id="@+id/labelJamMasuk"
+        						android:text="Jam Masuk"
+        						android:width="40mm" />
+    		      <TextView
+        						android:id="@+id/titik4"
+        						android:text=":"
+        						android:layout_marginRight="5dp" />
+    		      <TextView
+        						android:id="@+id/JamMasuknyaGan" />
+                            
+        </TableRow>
+         <TableRow
+                  android:id="@+id/rowDuration"
+                  android:padding="3dip"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content">
+                  <TextView
+        						android:id="@+id/labelDuration"
+        						android:text="Durasi"
+        						android:width="40mm" />
+    		      <TextView
+        						android:id="@+id/titik5"
+        						android:text=":"
+        						android:layout_marginRight="5dp" />
+    		      <TextView
+        						android:id="@+id/DurasiParkir" />
+                            
+        </TableRow>	
+        <TableRow
+                  android:id="@+id/rowJamMasuk1"
+                  android:padding="3dip"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content">
+
+                 <Button
+                     android:id="@+id/btnShowMap2"
+                     style="@style/btnStyleOrange"
+                     android:focusable="false"
+                     android:text="Show Map" />
+                            
+        </TableRow>		 
+        
+    </TableLayout>
+   

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#ffffff">
+    
+    <!-- Name Label -->
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="10dip"
+        android:text="Vin Number"
+        android:textSize="17dip" />
+    
+    <!-- Input Name -->
+	<EditText android:id="@+id/showVin"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="5dip"
+	    android:editable="false"
+	    android:layout_marginBottom="15dip"
+	    android:singleLine="true"/>
+	
+	<!-- Price Label -->
+    <LinearLayout android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+	     <TextView
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="10dip"
+        android:text="Brand"
+        android:textSize="17dip" />
+	     
+	     <TextView
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         android:paddingLeft="40dip"
+	         android:paddingRight="10dip"
+	         android:paddingTop="10dip"
+	         android:text="Type"
+	         android:textSize="17dip" />
+    
+    <!-- Input Price -->
+	</LinearLayout>
+   
+	
+	<!-- Description Label -->
+<LinearLayout android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+    <EditText
+        android:id="@+id/showBrand"
+        android:layout_width="122dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip"
+        android:layout_marginBottom="15dip"
+       android:editable="false"
+        android:ems="10"
+        
+        android:singleLine="true" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/showType"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip"
+        android:layout_marginBottom="15dip"
+        android:layout_marginLeft="40dip"
+        android:ems="10"
+       android:editable="false"
+        android:singleLine="true" />
+
+    </LinearLayout>
+    
+    <!-- Input description -->
+	
+	
+	    <!-- Button Create Product -->
+	
+	<!-- Button Create Product -->
+
+		<TextView
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:paddingLeft="10dip"
+		    android:paddingRight="10dip"
+		    android:paddingTop="10dip"
+		    android:text="Informasi Parkir"
+		    android:textSize="17dip" />
+		
+		<TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="10dip"
+        android:text="Area Parkir"
+        android:textSize="17dip" />
+	    
+		<EditText android:id="@+id/areaParkir"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="5dip"
+	    android:editable="false"
+	    android:layout_marginBottom="15dip"
+	    android:singleLine="true"/>
+		
+		<TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="10dip"
+        android:text="Jam Masuk"
+        android:textSize="17dip" />
+		
+		<EditText android:id="@+id/jamMasuk"
+	    android:layout_width="fill_parent"
+	     android:editable="false"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="5dip"
+	    android:layout_marginBottom="15dip"
+	    android:singleLine="true"/>
+	
+	<Button
+	    android:id="@+id/btnShowMap2"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:text="Show Map"
+	    style="@style/btnStyleOrange" />
+
+	<EditText
+	    android:id="@+id/txtLong"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="5dip"
+	    android:layout_marginBottom="15dip"
+	    android:editable="false"
+	    android:ems="10"
+	    android:singleLine="true"
+	    android:visibility="gone" />
+
+	<EditText
+	    android:id="@+id/txtLat"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="5dip"
+	    android:layout_marginBottom="15dip"
+	    android:editable="false"
+	    android:ems="10"
+	    android:singleLine="true"
+	    android:visibility="gone" />
+	
+</LinearLayout>

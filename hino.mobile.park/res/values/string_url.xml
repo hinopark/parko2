@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="url_base_search_detail">http://unit-locator.com/parkir/api/searchDetail.php</string>
+    <string name="url_base_delete_product">http://192.168.1.132/android_connect/delete_product.php</string>
+    <string name="url_base_list_all_pdi">http://unit-locator.com/parkir/api/listOpsiPDI.php</string>
+    <string name="url_base_save_pdi">http://unit-locator.com/parkir/api/savePDI.php</string>
+    <string name="url_base_get_all_product">"http://192.168.1.132/android_connect/get_all_products.php"</string>
+    <string name="url_base_list_parkir">http://unit-locator.com/parkir/api/listParkir.php</string>
+    <string name="url_base_stock_event">http://unit-locator.com/parkir/api/listStockEvent.php</string>
+
+</resources>

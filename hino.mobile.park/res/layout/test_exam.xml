@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#ffffff"
+  
+   >
+  
+  		
+        			
+  		
+
+<ScrollView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  
+  android:fillViewport="true"
+  android:id="@+id/contentTengah"
+  
+  >
+  
+  		
+  		<!--  Header  Starts-->
+  		
+  		<!-- Footer Ends -->
+  		
+  		<!-- Login Form -->
+		<LinearLayout
+		  	xmlns:android="http://schemas.android.com/apk/res/android"
+		 	android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+    		android:orientation="vertical"
+    		
+    		android:background="#ffffff" 
+    		android:id="@+id/contentTengah2"
+    		android:descendantFocusability="blocksDescendants"
+		  	android:padding="10dip"
+		  	>
+		  <!--  Email Label -->
+		  <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:width="50dp"
+        
+        />
+		    
+		</LinearLayout>
+		
+  		<!-- Login Form Ends --> 		
+  		
+  
+</ScrollView>
+ <LinearLayout android:id="@+id/optionAnswer"
+  				android:layout_width="fill_parent"
+  				android:layout_height="wrap_content"
+  				
+  				android:paddingTop="5dip"
+  				android:orientation="vertical"
+  				android:paddingBottom="5dip"
+  				android:layout_alignParentBottom="true"
+  				android:layout_below="@+id/contentTengah"
+  				>
+  				<TextView android:layout_width="fill_parent"
+		  		android:layout_height="wrap_content"
+		  		android:textColor="#372c24"
+		  		
+		  		android:text="Note : "/>
+    <EditText 
+		      	android:id="@+id/txtNote" 
+		      	android:layout_width="fill_parent"
+		  		android:layout_height="wrap_content"
+		  		android:layout_marginTop="5dip"
+		  		android:inputType="textMultiLine"
+    			android:lines="4"  
+    			android:gravity="top|left"
+    			android:maxLines="4"
+		        android:layout_marginBottom="20dip" 
+		  		/>
+    <Button
+                     android:id="@+id/btnSave"
+                     style="@style/btnStyleOrange"
+                     android:focusable="false"
+                     android:text="Save"
+                     android:layout_width="fill_parent"
+		  			 android:layout_height="wrap_content" />
+  		</LinearLayout>
+</RelativeLayout>
+
+

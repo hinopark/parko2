@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="contoh.halo.Halo" >
+
+     <item
+        android:id="@+id/action_search"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Pencarian Mobil"/>
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_settings"/>
+    
+    <item
+        android:id="@+id/action_listParkir"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="List Mobil"/>
+    
+    <item
+        android:id="@+id/about_version"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/about_version"/>
+    
+   
+
+</menu>

@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    tools:context=".MainActivity" >
+
+    <!--
+    <LinearLayout 
+        android:id="@+id/action_bar_custom"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentTop="true"
+        android:paddingTop="8dip"
+        android:paddingBottom="8dip"
+        android:paddingLeft="4dip"
+        android:paddingRight="4dip"
+        android:background="#570005"
+        android:orientation="horizontal">
+    	<ImageView 
+    	    android:contentDescription="@string/desc_image"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:src="@drawable/ic_launcher"/>  
+		<TextView 
+		    android:layout_width="wrap_content"
+		    android:layout_height="match_parent"
+		    android:gravity="center_vertical"
+		    android:text="@string/app_name"
+		    android:textColor="@android:color/white"
+		    android:textSize="20sp"
+		    android:fontFamily="sans-serif-condensed"/>
+		<TextView 
+			android:layout_width="0dip"
+			android:layout_height="match_parent"
+			android:layout_weight="0.35"
+			android:paddingRight="8dip"
+			android:text="12-10-2013"
+			android:gravity="right|center_vertical"
+			android:textColor="@android:color/white"
+			android:fontFamily="sans-serif-light"/>  
+    </LinearLayout>
+    -->
+<TextView
+        android:id="@+id/pid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+
+    <!-- Name Label -->
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="6dip"
+        android:paddingLeft="6dip"
+        android:textSize="17dip"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:fontFamily="sans-serif-considered"
+        android:gravity="right"
+        android:paddingBottom="8dip"
+        android:paddingTop="2dip"
+        android:text=""
+        android:textColor="#555"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/date"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:text="Search Result"
+        android:textColor="#555" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="21dp" >
+    </ListView>
+
+</RelativeLayout>

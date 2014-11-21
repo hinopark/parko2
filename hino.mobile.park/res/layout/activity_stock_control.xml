@@ -1,0 +1,215 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    tools:context=".MainActivity" >
+
+    <!--
+    <LinearLayout 
+        android:id="@+id/action_bar_custom"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_alignParentTop="true"
+        android:paddingTop="8dip"
+        android:paddingBottom="8dip"
+        android:paddingLeft="4dip"
+        android:paddingRight="4dip"
+        android:background="#570005"
+        android:orientation="horizontal">
+    	<ImageView 
+    	    android:contentDescription="@string/desc_image"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:src="@drawable/ic_launcher"/>  
+		<TextView 
+		    android:layout_width="wrap_content"
+		    android:layout_height="match_parent"
+		    android:gravity="center_vertical"
+		    android:text="@string/app_name"
+		    android:textColor="@android:color/white"
+		    android:textSize="20sp"
+		    android:fontFamily="sans-serif-condensed"/>
+		<TextView 
+			android:layout_width="0dip"
+			android:layout_height="match_parent"
+			android:layout_weight="0.35"
+			android:paddingRight="8dip"
+			android:text="12-10-2013"
+			android:gravity="right|center_vertical"
+			android:textColor="@android:color/white"
+			android:fontFamily="sans-serif-light"/>  
+    </LinearLayout>
+    -->
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:fontFamily="sans-serif-considered"
+        android:gravity="right"
+        android:paddingBottom="8dip"
+        android:paddingTop="2dip"
+        android:text=""
+        android:textColor="#555"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/vin_id"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_below="@id/date"
+        android:layout_marginBottom="8dip"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="8dip"
+        android:background="@drawable/card_bg"
+        android:gravity="center"
+        android:hint="@string/text_vin_number"
+        android:inputType="textCapCharacters"
+        android:textColor="#000000" />
+
+    <LinearLayout
+        android:id="@+id/lat_long_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="4dip"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/title_lat_long"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@drawable/bg_card_latitude"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/title_latitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:paddingTop="4dip"
+                android:text="@string/text_latitude"
+                android:textColor="#555" />
+            <!--
+                 <View
+				android:layout_width="fill_parent"
+   				android:layout_height="0.5dp"
+   				android:background="@android:color/darker_gray"/>
+            -->
+
+            <EditText
+                android:id="@+id/latitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint=""
+                android:inputType="numberSigned|numberDecimal"
+                android:padding="4dip"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/frame_location"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@drawable/bg_card_longitude"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/title_longitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:paddingTop="4dip"
+                android:text="@string/text_longitude"
+                android:textColor="#555" />
+            <!--
+                 <View
+				android:layout_width="fill_parent"
+   				android:layout_height="0.5dp"
+   				android:background="@android:color/darker_gray"/>
+            -->
+
+            <EditText
+                android:id="@+id/longitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint=""
+                android:inputType="numberSigned|numberDecimal"
+                android:padding="4dip"
+                android:text=""
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/scan_qr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vin_id"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_action"
+        android:contentDescription="@string/desc_image"
+        android:onClick="launchQRScanner"
+        android:src="@drawable/qrcode" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scan_qr"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:text="@string/text_scan_qr"
+        android:textColor="#555" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="Accuracy" />
+
+    <EditText
+        android:id="@+id/txtaccuracy"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:background="@drawable/card_bg"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Accuracy"
+        android:inputType="textCapCharacters"
+        android:textColor="#000000" >
+
+        <requestFocus />
+    </EditText>
+<TextView android:id="@+id/lblMessage" 
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:textSize="16dip"
+         android:layout_margin="10dip"
+         android:textColor="#000000"
+         />
+</RelativeLayout>
