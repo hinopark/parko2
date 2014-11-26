@@ -4,10 +4,38 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="#ffffff" 
-    android:descendantFocusability="blocksDescendants">
+    android:focusableInTouchMode="true"
+    android:descendantFocusability="beforeDescendants">
 	<!-- Main ListView 
 		 Always give id value as list(@android:id/list)
 	-->
+	<TextView android:layout_width="wrap_content"
+		  		android:layout_height="wrap_content"
+		  		android:textColor="#372c24"
+		  		android:layout_gravity="center_horizontal"
+		  		android:text="Pencarian "
+		  		android:paddingLeft="10dp" />
+    <EditText 
+		      	android:id="@+id/txtSearch" 
+		      	android:layout_width="wrap_content"
+		  		android:layout_height="wrap_content"
+		  		android:layout_marginTop="10dip"
+		  		android:hint="Ketikkan keyword pencarian"
+		  		android:singleLine="true"
+		  		android:layout_gravity="center_horizontal"
+    			android:background="#FAEBD7"
+    			android:maxLength="4"
+		        android:paddingLeft="10dp" 
+		  		/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:text="Search"
+        android:id="@+id/btnCari"
+        style="@style/btnStyleOrange"  >
+    </Button>
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
