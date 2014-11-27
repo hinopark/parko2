@@ -97,7 +97,7 @@ public class listWaitingPdi extends ListActivity {
 		
 		// Loading products in Background Thread
 		new LoadAllProducts().execute();
-		txtSearch = (EditText)findViewById(R.id.txtSearch);
+		txtSearch = (EditText)findViewById(R.id.edit_text_search_pdi);
 		// Get listview
 		ListView lv = getListView();
 		
@@ -120,7 +120,7 @@ public class listWaitingPdi extends ListActivity {
 		// on seleting single product
 		// launching Edit Product Screen
 		
-        Button btnCari = (Button) findViewById(R.id.btnCari);
+        Button btnCari = (Button) findViewById(R.id.button_search_pdi);
         btnCari.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
