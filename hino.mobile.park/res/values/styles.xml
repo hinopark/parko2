@@ -1,29 +1,45 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-<style name="btnStyleOrange" parent="@android:style/Widget.Button">
-       <item name="android:textSize">15sp</item>
-       <item name="android:textStyle">bold</item>
-       <item name="android:textColor">#FFFFFF</item>
-       <item name="android:gravity">center</item>
-       <item name="android:shadowColor">#000000</item>
-       <item name="android:shadowDx">1</item>
-       <item name="android:shadowDy">1</item>
-       <item name="android:shadowRadius">0.6</item>
-       <item name="android:background">@drawable/custom_btn_orange</item>
-       <item name="android:padding">10dip</item>
-   </style>
-   
-<style name="btnStyleGenoa" parent="@android:style/Widget.Button">
-       <item name="android:textSize">15sp</item>
-       <item name="android:textStyle">bold</item>
-       <item name="android:textColor">#FFFFFF</item>
-       <item name="android:gravity">center</item>
-       <item name="android:shadowColor">#000000</item>
-       <item name="android:shadowDx">1</item>
-       <item name="android:shadowDy">1</item>
-       <item name="android:shadowRadius">0.6</item>
-       <item name="android:background">@drawable/custom_btn_genoa</item>
-       <item name="android:padding">10dip</item>
-   </style>
+
+    <style name="ButtonText">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:background">@drawable/custom_btn_orange</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
+    <style name="btnStyleOrange" parent="@android:style/Widget.Button">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:gravity">center</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">0.6</item>
+        <item name="android:background">@drawable/custom_btn_orange</item>
+        <item name="android:padding">10dip</item>
+    </style>
+
+    <style name="btnStyleGenoa" parent="@android:style/Widget.Button">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:gravity">center</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">0.6</item>
+        <item name="android:background">@drawable/custom_btn_genoa</item>
+        <item name="android:padding">10dip</item>
+    </style>
     <!--
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -38,25 +54,25 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
+
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
         <item name="android:actionBarStyle">@style/MyActionBar</item>
-        
         <item name="actionBarSplitStyle">@style/Widget.Styled.ActionBar</item>
-    	<item name="android:actionBarSplitStyle">@style/Widget.Styled.ActionBar</item>
+        <item name="android:actionBarSplitStyle">@style/Widget.Styled.ActionBar</item>
     </style>
-    
+
     <style name="MyActionBar" parent="@android:style/Widget.Holo.ActionBar">
         <item name="android:background">#570005</item>
         <item name="android:titleTextStyle">@style/ActionBarTitleTextStyle</item>
         <item name="android:subtitleTextStyle">@style/ActionBarSubTitleTextStyle</item>
     </style>
-    
+
     <!-- style the action bar text color -->
     <style name="ActionBarTitleTextStyle" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
-    
+
     <!-- style the action bar text color -->
     <style name="ActionBarSubTitleTextStyle" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:textColor">@android:color/white</item>
@@ -74,22 +90,23 @@
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">2</item>
     </style>
-    
+
     <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
-    	<item name="background">@android:color/background_dark</item>
-    	<item name="backgroundSplit">#570005</item>
-    	<item name="android:background">@android:color/background_dark</item>
-    	<item name="android:backgroundStacked">@android:color/background_dark</item>
-    	<item name="android:backgroundSplit">#570005</item>
-    	<item name="android:actionButtonStyle">@android:color/background_dark</item>
-	</style>
-     <style name="ActionBarCompat">
+        <item name="background">@android:color/background_dark</item>
+        <item name="backgroundSplit">#570005</item>
+        <item name="android:background">@android:color/background_dark</item>
+        <item name="android:backgroundStacked">@android:color/background_dark</item>
+        <item name="android:backgroundSplit">#570005</item>
+        <item name="android:actionButtonStyle">@android:color/background_dark</item>
+    </style>
+
+    <style name="ActionBarCompat">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:background">@drawable/actionbar_background</item>
     </style>
-       
+
     <style name="DashboardButton">
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_width">wrap_content</item>
@@ -100,12 +117,13 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">#ff29549f</item>
         <item name="android:background">@null</item>
-    </style>    
-    
-   <style name="FooterBar">
+    </style>
+
+    <style name="FooterBar">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">40dp</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:background">#dedede</item>
-    </style>     
+    </style>
+
 </resources>
