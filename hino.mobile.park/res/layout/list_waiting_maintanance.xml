@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/ly_seach_list_maintanance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/text_view_search_maintanance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/text_view_search_maintanance"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/text_view_search_maintanance"
+            android:layout_marginBottom="10dp"
+            android:background="#222222" />
+
+        <ImageButton
+            android:id="@+id/image_view_barcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_search_maintanance"
+            android:background="@drawable/btn_action"
+            android:src="@drawable/thumbnail_upload" />
+
+        <EditText
+            android:id="@+id/edit_teks_search_maintanance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_search_maintanance"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/image_view_barcode"
+            android:background="#FAEBD7"
+            android:drawableLeft="@drawable/ic_search"
+            android:hint="@string/hint_edit_text_search_maintanance"
+            android:singleLine="true"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/button_search_maintanance"
+            style="@style/ButtonText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_teks_search_maintanance"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="2dp"
+            android:layout_toRightOf="@+id/image_view_barcode"
+            android:text="@string/button_search_maintanance" />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/text_view_search_pdi"
+        android:layout_marginBottom="10dp"
+        android:background="#222222" />
+
+    <ListView
+        android:id="@+id/list_maintanance"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="text_view_search_maintanance">Pencarian Maintanance</string>
+    <string name="hint_edit_text_search_maintanance">VIN ID</string>
+    <string name="button_search_maintanance">Search</string>
+
+</resources>
