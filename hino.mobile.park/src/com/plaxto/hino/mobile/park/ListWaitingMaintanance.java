@@ -54,8 +54,8 @@ public class ListWaitingMaintanance extends ListActivity
 
 	// url to get all products list
 	private static String url_all_products = LoginActivity.IP_SERVER + "listParkir.php";
-	private static String url_all_listPDI = LoginActivity.IP_SERVER + "ListWaitingMaintenance.php";
-	private static String url_listPDI_search = LoginActivity.IP_SERVER + "ListWaitingMaintenanceSearch.php";
+	private static String url_all_listPDI = LoginActivity.IP_SERVER + "listWaitingMaintenance.php";
+	private static String url_listPDI_search = LoginActivity.IP_SERVER + "listWaitingMaintenanceSearch.php";
 	private static final String url_product_detials = LoginActivity.IP_SERVER + "searchDetail.php";
 	
 	private static final int ZBAR_SCANNER_REQUEST 	 = 0;
@@ -97,7 +97,7 @@ public class ListWaitingMaintanance extends ListActivity
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.list_waiting_pdi_intro);
+		setContentView(R.layout.list_waiting_maintanance);
 		Intent i = getIntent();
 		btnScanQr	= (ImageButton)findViewById(R.id.image_view_barcode);
 		// getting product id (pid) from intent
@@ -293,7 +293,7 @@ public class ListWaitingMaintanance extends ListActivity
 					 * Updating parsed JSON data into ListView
 					 * */
 					ListAdapter adapter = new SimpleAdapter(ListWaitingMaintanance.this, productsList,
-							R.layout.list_waiting_pdi, new String[] { TAG_PID, "vin", TAG_NAME, "brand" }, new int[] {
+							R.layout.listview_waiting_maintenance, new String[] { TAG_PID, "vin", TAG_NAME, "brand" }, new int[] {
 									R.id.pid, R.id.VINNUMBEROK, R.id.name, R.id.brandnya })
 					{
 						@Override
@@ -462,7 +462,7 @@ public class ListWaitingMaintanance extends ListActivity
 					if (hasilPencarian)
 					{
 						ListAdapter adapter = new SimpleAdapter(ListWaitingMaintanance.this, productsList,
-								R.layout.list_waiting_pdi, new String[] { TAG_PID, "vin", TAG_NAME, "brand" },
+								R.layout.listview_waiting_maintenance, new String[] { TAG_PID, "vin", TAG_NAME, "brand" },
 								new int[] { R.id.pid, R.id.VINNUMBEROK, R.id.name, R.id.brandnya })
 						{
 							@Override
