@@ -170,6 +170,7 @@ TextView lblMessage;
 		GCMRegistrar.checkManifest(this);
 		
 		lblMessage = (TextView) findViewById(R.id.lblMessage);
+		//unregisterReceiver(mHandleMessageReceiver);
 		
 		registerReceiver(mHandleMessageReceiver, new IntentFilter(
 				DISPLAY_MESSAGE_ACTION));

@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_view_search_pdi"
             android:background="@drawable/btn_action"
+            android:onClick="launchQRScanner"
             android:src="@drawable/thumbnail_upload" />
 
         <EditText

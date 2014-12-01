@@ -75,6 +75,6 @@
         style="@style/DashboardButton"
         android:drawableTop="@drawable/btn_photos"
         android:text=""
-        android:visibility="gone" />
+        android:visibility="invisible" />
 
 </com.plaxto.hino.mobile.park.DashboardLayout>

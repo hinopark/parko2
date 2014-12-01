@@ -139,7 +139,7 @@ public class introCheckOutPdi  extends ListActivity {
 		 
 		 
 		 Button btnSearch=(Button) findViewById(R.id.btnSearch);
-		 
+		 btnSearch.setText("Check");
 		 btnSearch.setOnClickListener(new View.OnClickListener() {
 				
 				@Override
