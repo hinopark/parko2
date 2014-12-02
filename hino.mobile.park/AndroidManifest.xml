@@ -227,6 +227,11 @@
             android:label="Menunggu Maintanance"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="ScheduleMaintananceActivity"
+            android:label="Schedule Maintanance"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

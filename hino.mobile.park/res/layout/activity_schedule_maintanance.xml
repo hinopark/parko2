@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Spinner
+        android:id="@+id/spiner_schedule_mobil_mantainance"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:entries="@array/time_schedule_maintanance"
+        android:prompt="@string/list_mobil_maintanance" />
+
+    <Spinner
+        android:id="@+id/spiner_list_mobil_maintanace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/button_save_schedule_maintanance"
+        style="@style/ButtonText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</ScrollView>

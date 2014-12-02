@@ -4,5 +4,14 @@
     <string name="text_view_search_maintanance">Pencarian Maintanance</string>
     <string name="hint_edit_text_search_maintanance">VIN ID</string>
     <string name="button_search_maintanance">Search</string>
+    <string name="list_mobil_maintanance">Nama Mobil</string>
+
+    <string-array name="time_schedule_maintanance">
+        <item>30 </item>
+        <item>60 </item>
+        <item>90 </item>
+        <item>120 </item>
+    </string-array>
+
 
 </resources>
