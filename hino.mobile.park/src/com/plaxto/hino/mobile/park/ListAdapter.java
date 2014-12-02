@@ -33,13 +33,15 @@ public class ListAdapter extends BaseAdapter
 	{
 		ctx = context;
 		objects = products;
-		if (checkPDI.jumlahPDI == 0)
-		{
-			jumlahPdi = checkPDIOut.jumlahPDI;
-		}
-		else
+		if (checkPDI.jumlahPDI != 0)
 		{
 			jumlahPdi = checkPDI.jumlahPDI;
+		}
+		else if(checkPDIOut.jumlahPDI != 0)
+		{
+			jumlahPdi = checkPDIOut.jumlahPDI;
+		}else{
+			jumlahPdi = checkMaintenance.jumlahPDI;
 		}
 		lInflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		for (int i = 0; i < jumlahPdi; i++)

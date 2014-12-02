@@ -88,6 +88,12 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
+            android:name=".checkMaintenance"
+            android:label="Checking Maintenance : "
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
             android:name=".MainStockControl"
             android:label="Stock Controller : "
             android:screenOrientation="sensorPortrait" >
@@ -223,7 +229,7 @@
         <service android:name=".GCMIntentService" />
 
         <activity
-            android:name="ListWaitingMaintanance"
+            android:name="ListWaitingMaintenance"
             android:label="Menunggu Maintanance"
             android:screenOrientation="portrait" >
         </activity>
