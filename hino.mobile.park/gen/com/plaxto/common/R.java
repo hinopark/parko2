@@ -98,15 +98,15 @@ public final class R {
 	public static final class drawable {
 		public static final int btn_next_slider = 0x7f02007c;
 		public static final int btn_prev_slider = 0x7f02007f;
-		public static final int ic_launcher = 0x7f0200ab;
-		public static final int ptr_pulltorefresh_arrow = 0x7f0200c3;
-		public static final int vpi__tab_indicator = 0x7f0200c7;
-		public static final int vpi__tab_selected_focused_holo = 0x7f0200c8;
-		public static final int vpi__tab_selected_holo = 0x7f0200c9;
-		public static final int vpi__tab_selected_pressed_holo = 0x7f0200ca;
-		public static final int vpi__tab_unselected_focused_holo = 0x7f0200cb;
-		public static final int vpi__tab_unselected_holo = 0x7f0200cc;
-		public static final int vpi__tab_unselected_pressed_holo = 0x7f0200cd;
+		public static final int ic_launcher = 0x7f0200ac;
+		public static final int ptr_pulltorefresh_arrow = 0x7f0200c5;
+		public static final int vpi__tab_indicator = 0x7f0200ca;
+		public static final int vpi__tab_selected_focused_holo = 0x7f0200cb;
+		public static final int vpi__tab_selected_holo = 0x7f0200cc;
+		public static final int vpi__tab_selected_pressed_holo = 0x7f0200cd;
+		public static final int vpi__tab_unselected_focused_holo = 0x7f0200ce;
+		public static final int vpi__tab_unselected_holo = 0x7f0200cf;
+		public static final int vpi__tab_unselected_pressed_holo = 0x7f0200d0;
 	}
 	public static final class integer {
 		public static final int default_circle_indicator_orientation = 0x7f090003;
