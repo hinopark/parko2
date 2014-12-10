@@ -40,6 +40,7 @@ public class checkMaintenance extends ListActivity
 	ArrayList<HashMap<String, String>> productsList;
 
 	// url to get all products list
+	private static String url_save_maintenance = LoginActivity.IP_SERVER + "saveMaintenanceGagal.php";
 	private static String url_all_products = LoginActivity.IP_SERVER + "listParkir.php";
 	private static String url_all_listPDI = LoginActivity.IP_SERVER + "listMasterMaintenance.php";
 	private static String url_save_pdi = LoginActivity.IP_SERVER + "saveMaintenance.php";
@@ -48,7 +49,7 @@ public class checkMaintenance extends ListActivity
 	private static final String TAG_PRODUCTS = "products";
 	private static final String TAG_PID = "vinNumber";
 	private static final String TAG_NAME = "namaMasterMaintenance";
-	private String vin_number;
+	static String vin_number;
 	private String vinkirim;
 	private Button btnShowMap;
 	// products JSONArray
@@ -68,7 +69,7 @@ public class checkMaintenance extends ListActivity
 	static double long3;
 	static double long4;
 	static String vinNya;
-	boolean lanjutkan;
+	boolean lanjutkan,suksesSimpan;
 	private String vinPilih;
 	private static HashMap<String, String[]> optionPDIList;
 	 private int jumlahOption, jumlahNotGood;
@@ -801,14 +802,176 @@ public class checkMaintenance extends ListActivity
 			public void onClick(DialogInterface dialog, int which)
 			{
 				// User pressed YES button. Write Logic Here
-				Intent i = new Intent(checkMaintenance.this, AndroidDashboardDesignActivity.class);
-				startActivity(i);
-				finish();
+				
+				if(lolos=="Ya"){
+					Intent i = new Intent(checkMaintenance.this, ScheduleMaintananceActivity.class);
+					startActivity(i);
+					finish();
+				}else{
+					new SaveMaintenance().execute();
+				}
+				
 			}
 		});
 
 		// Showing Alert Message
 		alertDialog.show();
+	}
+	
+	private void dialogSuccessSimpan()
+	{
+		AlertDialog.Builder alertDialog = new AlertDialog.Builder(checkMaintenance.this);
+
+		// Setting Dialog Title
+		alertDialog.setTitle("Success :: ");
+
+		// Setting Dialog Message
+		alertDialog.setMessage("Success save maintenance");
+
+		// Setting Icon to Dialog
+		alertDialog.setIcon(R.drawable.save);
+
+		// Setting Positive "Yes" Button
+		alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener()
+		{
+			public void onClick(DialogInterface dialog, int which)
+			{
+				// User pressed YES button. Write Logic Here
+				
+				
+					Intent i = new Intent(checkMaintenance.this, ListWaitingMaintenance.class);
+					startActivity(i);
+					finish();
+				
+				
+			}
+		});
+
+		// Showing Alert Message
+		alertDialog.show();
+	}
+	
+	private void dialogGagalSimpan()
+	{
+		AlertDialog.Builder alertDialog = new AlertDialog.Builder(checkMaintenance.this);
+
+		// Setting Dialog Title
+		alertDialog.setTitle("Failed :: ");
+
+		// Setting Dialog Message
+		alertDialog.setMessage("failed save maintenance");
+
+		// Setting Icon to Dialog
+		alertDialog.setIcon(R.drawable.save);
+
+		// Setting Positive "Yes" Button
+		alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener()
+		{
+			public void onClick(DialogInterface dialog, int which)
+			{
+				// User pressed YES button. Write Logic Here
+				
+				
+					Intent i = new Intent(checkMaintenance.this, ListWaitingMaintenance.class);
+					startActivity(i);
+					finish();
+				
+				
+			}
+		});
+
+		// Showing Alert Message
+		alertDialog.show();
+	}
+	
+	class SaveMaintenance extends AsyncTask<String, String, String>
+	{
+
+		/**
+		 * Before starting background thread Show Progress Dialog
+		 * */
+		@Override
+		protected void onPreExecute()
+		{
+			super.onPreExecute();
+			pDialog = new ProgressDialog(checkMaintenance.this);
+			pDialog.setMessage("Save the results. Please wait...");
+			pDialog.setIndeterminate(false);
+			pDialog.setCancelable(false);
+			pDialog.show();
+		}
+
+		/**
+		 * getting All products from url
+		 * */
+		protected String doInBackground(String... args)
+		{
+			// Building Parameters
+			List<NameValuePair> params = new ArrayList<NameValuePair>();
+
+			params.add(new BasicNameValuePair("vin", vin_number));
+			// getting JSON string from URL
+			JSONObject json = jParser.makeHttpRequest(url_save_maintenance, "GET", params);
+
+			// Check your log cat for JSON reponse
+			//Log.d("vinNumber",vinNumber);
+			Log.d("All Products: ", json.toString());
+
+			try
+			{
+				// Checking for SUCCESS TAG
+				int success = json.getInt("success");
+
+				if (success == 1)
+				{
+					suksesSimpan = true;
+					// products found
+					// Getting Array of Products
+										
+				}
+				else
+				{
+					suksesSimpan = false;
+					// no products found
+					// Launch Add New product Activity
+					// Intent i = new Intent(getApplicationContext(),
+					// NewProductActivity.class);
+					// Closing all previous activities
+					// i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					// startActivity(i);
+				}
+			}
+			catch (JSONException e)
+			{
+				e.printStackTrace();
+			}
+
+			return null;
+		}
+
+		/**
+		 * After completing background task Dismiss the progress dialog
+		 * **/
+		protected void onPostExecute(String file_url)
+		{
+			// dismiss the dialog after getting all products
+			pDialog.dismiss();
+			// updating UI from Background Thread
+			runOnUiThread(new Runnable()
+			{
+				public void run()
+				{
+					if(suksesSimpan==true){
+						dialogSuccessSimpan();
+					}else{
+						dialogGagalSimpan();
+					}
+				
+				}
+			});
+
+		}
+
 	}
 
 }

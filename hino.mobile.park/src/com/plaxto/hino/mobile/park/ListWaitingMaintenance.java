@@ -293,7 +293,7 @@ public class ListWaitingMaintenance extends ListActivity
 					 * Updating parsed JSON data into ListView
 					 * */
 					ListAdapter adapter = new SimpleAdapter(ListWaitingMaintenance.this, productsList,
-							R.layout.list_waiting_pdi, new String[] { TAG_PID, "vin", TAG_NAME, "brand" }, new int[] {
+							R.layout.listview_waiting_maintenance, new String[] { TAG_PID, "vin", TAG_NAME, "brand" }, new int[] {
 									R.id.pid, R.id.VINNUMBEROK, R.id.name, R.id.brandnya })
 					{
 						@Override

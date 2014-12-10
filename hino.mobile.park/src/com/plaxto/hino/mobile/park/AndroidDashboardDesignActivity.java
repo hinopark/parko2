@@ -1,14 +1,23 @@
 package com.plaxto.hino.mobile.park;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class AndroidDashboardDesignActivity extends Activity
 {
-
+	private static final String LOGIN_CACHE = "loginhinopark";
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -165,4 +174,33 @@ public class AndroidDashboardDesignActivity extends Activity
 		
 
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main_dashboard, menu);
+		return true;
+	}
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+	    int itemId = item.getItemId();
+	    switch (itemId) {
+	   
+	    case R.id.action_logout:
+	    	SharedPreferences settings = getSharedPreferences(
+						LOGIN_CACHE, Context.MODE_PRIVATE);
+						settings.edit().clear().commit();
+	    	Intent b = new Intent(AndroidDashboardDesignActivity.this, LoginActivity.class);
+			startActivity(b);
+			finish();
+	    	//initialize();
+	    	//initializeServer(null, null, 0.0, 0.0);
+	    	
+	    	break;
+	    
+	   
+	    
+	    }
+	    return true;
+	}
+	
 }
