@@ -11,9 +11,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import net.sourceforge.zbar.Symbol;
-
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
@@ -34,7 +32,6 @@ import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.plaxto.common.gps.GpsMain;
 import com.plaxto.common.http.HttpSynch;
@@ -42,7 +39,7 @@ import com.plaxto.common.qrcode.ZBarConstants;
 import com.plaxto.common.qrcode.ZBarScannerActivity;
 import com.plaxto.hino.mobile.park.global.GlobalModel;
 import com.plaxto.hino.mobile.park.listSearch.LoadAllProducts;
-public class ListWaitingMaintenance extends ListActivity
+public class ActivityStartMaintenance extends ListActivity
 {
 
 	// Progress Dialog
@@ -56,7 +53,7 @@ public class ListWaitingMaintenance extends ListActivity
 	// url to get all products list
 	private static String url_all_products = LoginActivity.IP_SERVER + "listParkir.php";
 	private static String url_all_listPDI = LoginActivity.IP_SERVER + "listWaitingMaintenance.php";
-	private static String url_listPDI_search = LoginActivity.IP_SERVER + "listWaitingPDISearch.php";
+	private static String url_listPDI_search = LoginActivity.IP_SERVER + "saveMaintenanceStart.php";
 	private static final String url_product_detials = LoginActivity.IP_SERVER + "searchDetail.php";
 	
 	private static final int ZBAR_SCANNER_REQUEST 	 = 0;
@@ -91,15 +88,14 @@ public class ListWaitingMaintenance extends ListActivity
 	static String vinNya;
 	private String vinPilih;
 	boolean hasilPencarian;
-	TextView titleAtas;
-	EditText txtSearch;
+	EditText txtSearch,txtKeterangan;
 	List<String> vinIndex = new ArrayList<String>();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.list_waiting_pdi_intro);
+		setContentView(R.layout.activity_maintenance);
 		Intent i = getIntent();
 		btnScanQr	= (ImageButton)findViewById(R.id.image_view_barcode);
 		// getting product id (pid) from intent
@@ -109,11 +105,9 @@ public class ListWaitingMaintenance extends ListActivity
 
 		// Loading products in Background Thread
 		new LoadAllProducts().execute();
-		getActionBar().setTitle("List Waiting Maintenance: ");
-		
-		txtSearch = (EditText)findViewById(R.id.edit_text_search_pdi);
-		titleAtas = (TextView)findViewById(R.id.text_view_search_pdi);
-		titleAtas.setText("Pencarian Maintenance");
+
+		txtSearch = (EditText)findViewById(R.id.edit_teks_search_maintanance);
+		txtKeterangan = (EditText)findViewById(R.id.text_keterangan);
 		// Get listview
 		ListView lv = getListView();
 
@@ -139,13 +133,14 @@ public class ListWaitingMaintenance extends ListActivity
 
 		
         Button btnCari = (Button) findViewById(R.id.button_search_pdi);
+        btnCari.setText("Start Maintenance");
         btnCari.setOnClickListener(new View.OnClickListener() {
 			
 
 			@Override
 			public void onClick(View v)
 			{
-				new LoadPencarian().execute();
+				new SimpanStatus().execute();
 			}
 		});
 	}
@@ -203,7 +198,7 @@ public class ListWaitingMaintenance extends ListActivity
 		protected void onPreExecute()
 		{
 			super.onPreExecute();
-			pDialog = new ProgressDialog(ListWaitingMaintenance.this);
+			pDialog = new ProgressDialog(ActivityStartMaintenance.this);
 			pDialog.setMessage("Loading list vehicle. Please wait...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
@@ -296,7 +291,7 @@ public class ListWaitingMaintenance extends ListActivity
 					/**
 					 * Updating parsed JSON data into ListView
 					 * */
-					ListAdapter adapter = new SimpleAdapter(ListWaitingMaintenance.this, productsList,
+					ListAdapter adapter = new SimpleAdapter(ActivityStartMaintenance.this, productsList,
 							R.layout.listview_waiting_maintenance, new String[] { TAG_PID, "vin", TAG_NAME, "brand" }, new int[] {
 									R.id.pid, R.id.VINNUMBEROK, R.id.name, R.id.brandnya })
 					{
@@ -334,7 +329,7 @@ public class ListWaitingMaintenance extends ListActivity
 									// Toast.makeText(listSearch.this,"Posisi "+position2,Toast.LENGTH_SHORT).show();
 									// new showMap().execute();
 
-									Intent i = new Intent(ListWaitingMaintenance.this, checkMaintenance.class);
+									Intent i = new Intent(ActivityStartMaintenance.this, checkMaintenance.class);
 									i.putExtra("idMobil", idMobil);
 									i.putExtra("vinNumber", vinkirim);
 									startActivity(i);
@@ -365,7 +360,7 @@ public class ListWaitingMaintenance extends ListActivity
 		protected void onPreExecute()
 		{
 			super.onPreExecute();
-			pDialog = new ProgressDialog(ListWaitingMaintenance.this);
+			pDialog = new ProgressDialog(ActivityStartMaintenance.this);
 			pDialog.setMessage("Searching. Please wait...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
@@ -465,7 +460,7 @@ public class ListWaitingMaintenance extends ListActivity
 					 * */
 					if (hasilPencarian)
 					{
-						ListAdapter adapter = new SimpleAdapter(ListWaitingMaintenance.this, productsList,
+						ListAdapter adapter = new SimpleAdapter(ActivityStartMaintenance.this, productsList,
 								R.layout.list_waiting_pdi, new String[] { TAG_PID, "vin", TAG_NAME, "brand" },
 								new int[] { R.id.pid, R.id.VINNUMBEROK, R.id.name, R.id.brandnya })
 						{
@@ -505,7 +500,7 @@ public class ListWaitingMaintenance extends ListActivity
 										// Toast.makeText(listSearch.this,"Posisi "+position2,Toast.LENGTH_SHORT).show();
 										// new showMap().execute();
 
-										Intent i = new Intent(ListWaitingMaintenance.this, checkPDI.class);
+										Intent i = new Intent(ActivityStartMaintenance.this, checkPDI.class);
 										i.putExtra("idMobil", idMobil);
 										i.putExtra("vinNumber", vinkirim);
 										startActivity(i);
@@ -523,7 +518,7 @@ public class ListWaitingMaintenance extends ListActivity
 					}
 					else
 					{
-						AlertDialog.Builder alertDialog = new AlertDialog.Builder(ListWaitingMaintenance.this);
+						AlertDialog.Builder alertDialog = new AlertDialog.Builder(ActivityStartMaintenance.this);
 
 						// Setting Dialog Title
 						alertDialog.setTitle("Info :: ");
@@ -558,6 +553,157 @@ public class ListWaitingMaintenance extends ListActivity
 
 	}
 
+	
+	class SimpanStatus extends AsyncTask<String, String, String>
+	{
+
+		/**
+		 * Before starting background thread Show Progress Dialog
+		 * */
+		@Override
+		protected void onPreExecute()
+		{
+			super.onPreExecute();
+			pDialog = new ProgressDialog(ActivityStartMaintenance.this);
+			pDialog.setMessage("Saving. Please wait...");
+			pDialog.setIndeterminate(false);
+			pDialog.setCancelable(false);
+			pDialog.show();
+		}
+
+		/**
+		 * getting All products from url
+		 * */
+		protected String doInBackground(String... args)
+		{
+			// Building Parameters
+			List<NameValuePair> params = new ArrayList<NameValuePair>();
+
+			params.add(new BasicNameValuePair("id", LoginActivity.id+""));
+			params.add(new BasicNameValuePair("vin", txtSearch.getText().toString()));
+			params.add(new BasicNameValuePair("keterangan", txtKeterangan.getText().toString()));
+			// getting JSON string from URL
+			JSONObject json = jParser.makeHttpRequest(url_listPDI_search, "GET", params);
+
+			// Check your log cat for JSON reponse
+			Log.d("All Products: ", json.toString());
+
+			try
+			{
+				// Checking for SUCCESS TAG
+				int success = json.getInt(TAG_SUCCESS);
+
+				if (success == 1)
+				{
+					hasilPencarian = true;
+					// products found
+					// Getting Array of Products
+					
+				}
+				else
+				{
+					hasilPencarian = false;
+					// no products found
+					// Launch Add New product Activity
+					// Intent i = new Intent(getApplicationContext(),
+					// NewProductActivity.class);
+					// Closing all previous activities
+					// i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					// startActivity(i);
+				}
+			}
+			catch (JSONException e)
+			{
+				e.printStackTrace();
+			}
+
+			return null;
+		}
+
+		/**
+		 * After completing background task Dismiss the progress dialog
+		 * **/
+		protected void onPostExecute(String file_url)
+		{
+			// dismiss the dialog after getting all products
+			pDialog.dismiss();
+			// updating UI from Background Thread
+			runOnUiThread(new Runnable()
+			{
+				public void run()
+				{
+					/**
+					 * Updating parsed JSON data into ListView
+					 * */
+					if (hasilPencarian)
+					{
+						AlertDialog.Builder alertDialog = new AlertDialog.Builder(ActivityStartMaintenance.this);
+
+						// Setting Dialog Title
+						alertDialog.setTitle("Info :: ");
+
+						// Setting Dialog Message
+						alertDialog.setMessage("Sukses start maintenance");
+
+						// Setting Icon to Dialog
+						alertDialog.setIcon(R.drawable.save);
+
+						// Setting Positive "Yes" Button
+						alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener()
+						{
+							public void onClick(DialogInterface dialog, int which)
+							{
+								// User pressed YES button. Write Logic Here
+								// Toast.makeText(getApplicationContext(),
+								// "Data Updated",
+								// Toast.LENGTH_SHORT).show();
+
+								Log.d("Masuk ke row ", "B01");
+							}
+						});
+
+						// Showing Alert Message
+						alertDialog.show();
+
+					}
+					else
+					{
+						AlertDialog.Builder alertDialog = new AlertDialog.Builder(ActivityStartMaintenance.this);
+
+						// Setting Dialog Title
+						alertDialog.setTitle("Info :: ");
+
+						// Setting Dialog Message
+						alertDialog.setMessage("Invalid VIN Number");
+
+						// Setting Icon to Dialog
+						alertDialog.setIcon(R.drawable.save);
+
+						// Setting Positive "Yes" Button
+						alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener()
+						{
+							public void onClick(DialogInterface dialog, int which)
+							{
+								// User pressed YES button. Write Logic Here
+								// Toast.makeText(getApplicationContext(),
+								// "Data Updated",
+								// Toast.LENGTH_SHORT).show();
+
+								Log.d("Masuk ke row ", "B01");
+							}
+						});
+
+						// Showing Alert Message
+						alertDialog.show();
+					}
+				}
+			});
+
+		}
+
+	}
+
+	
 	class tampilMap extends AsyncTask<String, String, String>
 	{
 
@@ -568,7 +714,7 @@ public class ListWaitingMaintenance extends ListActivity
 		protected void onPreExecute()
 		{
 			super.onPreExecute();
-			pDialog = new ProgressDialog(ListWaitingMaintenance.this);
+			pDialog = new ProgressDialog(ActivityStartMaintenance.this);
 			pDialog.setMessage("Loading products. Please wait...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
@@ -661,7 +807,7 @@ public class ListWaitingMaintenance extends ListActivity
 					/**
 					 * Updating parsed JSON data into ListView
 					 * */
-					ListAdapter adapter = new SimpleAdapter(ListWaitingMaintenance.this, productsList, R.layout.list_item,
+					ListAdapter adapter = new SimpleAdapter(ActivityStartMaintenance.this, productsList, R.layout.list_item,
 							new String[] { TAG_PID, "vin", TAG_NAME, "brand", "brand", "vin" }, new int[] { R.id.pid,
 									R.id.VINNUMBEROK, R.id.name, R.id.brandnya, R.id.AreaParkirnyaGan,
 									R.id.JamMasuknyaGan })
@@ -683,7 +829,7 @@ public class ListWaitingMaintenance extends ListActivity
 									// vinkirim = ((TextView)
 									// view.findViewById(R.id.VINNUMBEROK)).getText()
 									// .toString();
-									Toast.makeText(ListWaitingMaintenance.this, "save" + vinkirim, Toast.LENGTH_SHORT).show();
+									Toast.makeText(ActivityStartMaintenance.this, "save" + vinkirim, Toast.LENGTH_SHORT).show();
 								}
 							});
 
@@ -709,7 +855,7 @@ public class ListWaitingMaintenance extends ListActivity
 		protected void onPreExecute()
 		{
 			super.onPreExecute();
-			pDialog = new ProgressDialog(ListWaitingMaintenance.this);
+			pDialog = new ProgressDialog(ActivityStartMaintenance.this);
 			pDialog.setMessage("Getting Search Detail Information . Please wait...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
@@ -765,7 +911,7 @@ public class ListWaitingMaintenance extends ListActivity
 		protected void onPreExecute()
 		{
 			super.onPreExecute();
-			pDialog = new ProgressDialog(ListWaitingMaintenance.this);
+			pDialog = new ProgressDialog(ActivityStartMaintenance.this);
 			pDialog.setMessage("Loading Map. Please wait...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(true);
@@ -860,7 +1006,7 @@ public class ListWaitingMaintenance extends ListActivity
 		protected void onPostExecute(String file_url)
 		{
 			// dismiss the dialog once got all details
-			Intent i = new Intent(ListWaitingMaintenance.this, map_activity2.class);
+			Intent i = new Intent(ActivityStartMaintenance.this, map_activity2.class);
 			startActivity(i);
 			pDialog.dismiss();
 
@@ -869,7 +1015,7 @@ public class ListWaitingMaintenance extends ListActivity
 
 	public void onBackPressed()
 	{
-		Intent i = new Intent(ListWaitingMaintenance.this, AndroidDashboardDesignActivity.class);
+		Intent i = new Intent(ActivityStartMaintenance.this, AndroidDashboardDesignActivity.class);
 		startActivity(i);
 		finish();
 	}

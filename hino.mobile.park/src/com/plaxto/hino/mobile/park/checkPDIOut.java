@@ -132,7 +132,7 @@ public class checkPDIOut extends ListActivity
 		ListView lv = getListView();
 		lv.setDescendantFocusability(ViewGroup.FOCUS_AFTER_DESCENDANTS);
 
-		Button btnSimpan = (Button) findViewById(R.id.btnSave);
+		Button btnSimpan = (Button) findViewById(R.id.button_save_pdi_checking);
 		btnSimpan.setOnClickListener(new View.OnClickListener()
 		{
 

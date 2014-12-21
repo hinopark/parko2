@@ -123,7 +123,7 @@ public class transferIn  extends ListActivity {
 		
 		setupViews();
 		productsList = new ArrayList<HashMap<String, String>>();
-		getActionBar().setTitle("Transporter Checking : ");
+		getActionBar().setTitle("Tranporter Entry ");
 		//new LoadHistory().execute();
 		ListView lv = getListView();
 		formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

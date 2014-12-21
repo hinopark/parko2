@@ -234,9 +234,20 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name="ActivityEndMaintenance"
+            android:label="End Maintanance"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="ActivityStartMaintenance"
+            android:label="Start Maintanance"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="ScheduleMaintananceActivity"
             android:label="Schedule Maintanance"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
         </activity>
     </application>
 

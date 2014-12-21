@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="text_view_search_pdi">Pencarian pdi</string>
+<string name="text_view_search_pdi">Silahkan masukkan / scan Vin Number</string>
 <string name="hint_edit_text_search_pdi">VIN ID</string>
 <string name="button_search_pdi">Search</string>    
 </resources>

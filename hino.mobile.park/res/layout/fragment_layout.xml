@@ -69,6 +69,18 @@
         style="@style/DashboardButton"
         android:drawableTop="@drawable/btn_photos"
         android:text="Maintanance" />
+    
+    <Button
+        android:id="@+id/button_start"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/btn_photos"
+        android:text="Start Maintanance" />
+    
+    <Button
+        android:id="@+id/button_end"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/btn_photos"
+        android:text="End Maintanance" />
 
     <Button
         android:id="@+id/button_"

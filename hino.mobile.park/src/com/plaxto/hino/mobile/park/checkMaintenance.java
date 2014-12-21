@@ -103,7 +103,7 @@ public class checkMaintenance extends ListActivity
 		vin_number = i.getStringExtra("vinNumber");
 		idMobil = i.getStringExtra("idMobil");
 		// Hashmap for ListView
-		getActionBar().setTitle("PDI Checking : " + vin_number);
+		getActionBar().setTitle("Maintenance Checking : " + vin_number);
 		productsList = new ArrayList<HashMap<String, String>>();
 
 		optionPDIList = new HashMap<String, String[]>();

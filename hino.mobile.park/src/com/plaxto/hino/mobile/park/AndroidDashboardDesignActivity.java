@@ -48,6 +48,10 @@ public class AndroidDashboardDesignActivity extends Activity
 		Button btn_transfer_in = (Button) findViewById(R.id.btn_transfer_in);
 		
 		Button btn_maintanance = (Button) findViewById(R.id.button_maintanance);
+		
+		Button btn_start_maintanance = (Button) findViewById(R.id.button_start);
+		
+		Button btn_end_maintanance = (Button) findViewById(R.id.button_end);
 		// Dashboard Events button
 
 		/**
@@ -168,6 +172,30 @@ public class AndroidDashboardDesignActivity extends Activity
 			{
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(getApplicationContext(), ListWaitingMaintenance.class);
+				startActivity(intent);
+			}
+		});
+		
+		btn_start_maintanance.setOnClickListener(new View.OnClickListener()
+		{
+			
+			@Override
+			public void onClick(View v)
+			{
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(getApplicationContext(), ActivityStartMaintenance.class);
+				startActivity(intent);
+			}
+		});
+		
+		btn_end_maintanance.setOnClickListener(new View.OnClickListener()
+		{
+			
+			@Override
+			public void onClick(View v)
+			{
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(getApplicationContext(), ActivityEndMaintenance.class);
 				startActivity(intent);
 			}
 		});
