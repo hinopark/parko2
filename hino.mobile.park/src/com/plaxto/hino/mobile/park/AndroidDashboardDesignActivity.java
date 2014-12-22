@@ -43,7 +43,7 @@ public class AndroidDashboardDesignActivity extends Activity
 
 		Button btn_photos = (Button) findViewById(R.id.btn_photos);
 
-		Button btn_transfer_out = (Button) findViewById(R.id.btn_transfer_out);
+		
 		
 		Button btn_transfer_in = (Button) findViewById(R.id.btn_transfer_in);
 		
@@ -52,6 +52,11 @@ public class AndroidDashboardDesignActivity extends Activity
 		Button btn_start_maintanance = (Button) findViewById(R.id.button_start);
 		
 		Button btn_end_maintanance = (Button) findViewById(R.id.button_end);
+		
+		Button btn_checking_out = (Button) findViewById(R.id.btn_checking_out);
+		
+		
+		
 		// Dashboard Events button
 
 		/**
@@ -138,14 +143,14 @@ public class AndroidDashboardDesignActivity extends Activity
 			}
 		});
 
-		btn_transfer_out.setOnClickListener(new View.OnClickListener()
+		btn_checking_out.setOnClickListener(new View.OnClickListener()
 		{
 
 			@Override
 			public void onClick(View view)
 			{
 				// Launching News Feed Screen
-				Intent i = new Intent(getApplicationContext(), transferOut.class);
+				Intent i = new Intent(getApplicationContext(), checkingOut.class);
 				startActivity(i);
 				finish();
 			}

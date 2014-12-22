@@ -209,7 +209,7 @@ public class transferOut  extends ListActivity {
 		
 		Log.e("DATE", currentDateandTime);
 		//txtDate.setText(currentDateandTime);
-		getActionBar().setTitle("Transporter Checking  ");
+		getActionBar().setTitle("Gate Out  ");
 		getActionBar().setSubtitle(currentDateandTime);
 		Button btnSearch=(Button) findViewById(R.id.btnSearch);
 		 

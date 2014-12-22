@@ -65,11 +65,11 @@ import com.plaxto.common.qrcode.ZBarScannerActivity;
 import com.plaxto.hino.mobile.park.global.GlobalModel;
 import com.plaxto.hino.mobile.park.listSearch.LoadAllProducts;
 
-public class OutOffice  extends ListActivity {
+public class checkingOut  extends ListActivity {
 	
 	
 	private static final String URL_API_ = LoginActivity.IP_SERVER+"MainGateSave.php";
-	private static final String URL_API_OUT = LoginActivity.IP_SERVER+"outOffice.php";
+	private static final String URL_API_OUT = LoginActivity.IP_SERVER+"checkOut.php";
 	private static final String LOGIN_CACHE = "loginhinopark";
 	private static final int ZBAR_SCANNER_REQUEST 	 = 0;
 	private static final int ZBAR_QR_SCANNER_REQUEST = 1;
@@ -86,7 +86,7 @@ public class OutOffice  extends ListActivity {
 	private EditText txtLongitude;
 	Spinner spinJenis;
 	private Button btnCek;
-	private static String url_all_products = LoginActivity.IP_SERVER+"outOfficeHistory.php";
+	private static String url_all_products = LoginActivity.IP_SERVER+"checkOutHistory.php";
 	private ProgressDialog dialog;
 	private SimpleDateFormat formatter;
 	public static String checkType;
@@ -123,7 +123,7 @@ public class OutOffice  extends ListActivity {
 		
 		setupViews();
 		productsList = new ArrayList<HashMap<String, String>>();
-		getActionBar().setTitle("Gate Out : ");
+		getActionBar().setTitle("Check Out ");
 		//new LoadHistory().execute();
 		ListView lv = getListView();
 		formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -138,7 +138,7 @@ public class OutOffice  extends ListActivity {
 		 
 		 Button btnSearch=(Button) findViewById(R.id.btnSearch);
 		 
-			 btnSearch.setText("Keluar");
+			 btnSearch.setText("Transfer");
 		 
 		 btnSearch.setOnClickListener(new View.OnClickListener() {
 				
@@ -209,11 +209,11 @@ public class OutOffice  extends ListActivity {
 		
 		Log.e("DATE", currentDateandTime);
 		//txtDate.setText(currentDateandTime);
-		getActionBar().setTitle("Gate Out :   ");
+		getActionBar().setTitle("Checking Out  ");
 		getActionBar().setSubtitle(currentDateandTime);
 		Button btnSearch=(Button) findViewById(R.id.btnSearch);
 		 
-			 btnSearch.setText("Keluar");
+			 btnSearch.setText("Check Out");
 		 
 		 new LoadHistory().execute();
 	}
@@ -221,19 +221,20 @@ public class OutOffice  extends ListActivity {
 	
 	public void onBackPressed() {
 		gpsMain.stopGps();
-		Intent i = new Intent(OutOffice.this, AndroidDashboardDesignActivity.class);
+		Intent i = new Intent(checkingOut.this, AndroidDashboardDesignActivity.class);
 		startActivity(i);
 		finish();
 	}
 	
 	private void setupViews() {
-		gpsMain 	= new  GpsMain(OutOffice.this);
+		gpsMain 	= new  GpsMain(checkingOut.this);
 		globalModel	= new GlobalModel();
 		txtDate		= (TextView)findViewById(R.id.date);
 		txtResultQR	= (EditText)findViewById(R.id.vin_id);
 		
 		btnScanQr	= (ImageButton)findViewById(R.id.scan_qr);
 	}
+
 	/**
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -246,13 +247,13 @@ public class OutOffice  extends ListActivity {
 	    int itemId = item.getItemId();
 	    switch (itemId) {
 	    case R.id.action_settings:
-	    	  AlertDialog.Builder alert = new AlertDialog.Builder(OutOffice.this);
+	    	  AlertDialog.Builder alert = new AlertDialog.Builder(transferOut.this);
 
         	  alert.setTitle("Konfirmasi Password");
         	  alert.setMessage("Masukkan Password Anda");
 
         	  // Set an EditText view to get user input 
-        	  final EditText input = new EditText(OutOffice.this);
+        	  final EditText input = new EditText(transferOut.this);
         	  input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         	  alert.setView(input);
         	 
@@ -260,11 +261,11 @@ public class OutOffice  extends ListActivity {
         	  public void onClick(DialogInterface dialog, int whichButton) {
         	    String kiko = input.getText().toString();
         	    if(kiko.toString().equals("1234")){
-        	    	Intent i = new Intent(OutOffice.this, FormSetting.class);
+        	    	Intent i = new Intent(transferOut.this, FormSetting.class);
         	    	startActivity(i);
         	    	finish();
         	    }else{
-        	    	Toast.makeText(OutOffice.this, 
+        	    	Toast.makeText(transferOut.this, 
                     		"Invalid Password, please try again.", 
                     		Toast.LENGTH_SHORT).show();	
         	    }
@@ -284,7 +285,7 @@ public class OutOffice  extends ListActivity {
 			
 			break;
 	    case R.id.action_search:
-	    	Intent b = new Intent(OutOffice.this, FormSearchActivity.class);
+	    	Intent b = new Intent(transferOut.this, FormSearchActivity.class);
 			startActivity(b);
 	    	//initialize();
 	    	//initializeServer(null, null, 0.0, 0.0);
@@ -292,7 +293,7 @@ public class OutOffice  extends ListActivity {
 	    	break;
 	    
 	    case R.id.action_listParkir:
-	    	Intent c = new Intent(OutOffice.this, listParking.class);
+	    	Intent c = new Intent(transferOut.this, listParking.class);
 			startActivity(c);
 			finish();
 	    	//initialize();
@@ -465,41 +466,43 @@ public class OutOffice  extends ListActivity {
 		    if(success.toString().equals("1")){
 		    	dialog.dismiss();
 		    	//dialog.dismiss();
-	    		AlertDialog.Builder alertDialog = new AlertDialog.Builder(OutOffice.this);
-		    	 
-                // Setting Dialog Title
-                alertDialog.setTitle("Info :: ");
- 
-                // Setting Dialog Message
-                alertDialog.setMessage("Successfully");
-  
-                // Setting Icon to Dialog
-                alertDialog.setIcon(R.drawable.save);
- 
-                // Setting Positive "Yes" Button
-                alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                  public void onClick(DialogInterface dialog, int which) {
-                	  new LoadHistory().execute();
-                 
-                    }
-                });
- 
- 
- 
-                // Showing Alert Message
-                alertDialog.show();
+		    	
+		    		AlertDialog.Builder alertDialog = new AlertDialog.Builder(checkingOut.this);
+			    	 
+	                // Setting Dialog Title
+	                alertDialog.setTitle("Info :: ");
+	 
+	                // Setting Dialog Message
+	                alertDialog.setMessage("Successfully");
+	  
+	                // Setting Icon to Dialog
+	                alertDialog.setIcon(R.drawable.save);
+	 
+	                // Setting Positive "Yes" Button
+	                alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	                  public void onClick(DialogInterface dialog, int which) {
+	                	  new LoadHistory().execute();
+	                 
+	                    }
+	                });
+	 
+	 
+	 
+	                // Showing Alert Message
+	                alertDialog.show();
+		    	
 		    	
 		    }else if(success.toString().equals("0")){	
 		    	
 		    	dialog.dismiss();
 		    	//dialog.dismiss();
-	    		AlertDialog.Builder alertDialog = new AlertDialog.Builder(OutOffice.this);
+	    		AlertDialog.Builder alertDialog = new AlertDialog.Builder(checkingOut.this);
 		    	 
                 // Setting Dialog Title
                 alertDialog.setTitle("Info :: ");
  
                 // Setting Dialog Message
-                alertDialog.setMessage("Ohh sorry this car cant out from office now ");
+                alertDialog.setMessage("Ohhh sorry, vin number tidak bisa check out saat ini ");
   
                 // Setting Icon to Dialog
                 alertDialog.setIcon(R.drawable.save);
@@ -557,6 +560,7 @@ public class OutOffice  extends ListActivity {
 			jsonData.put("id", idPetugas);	
 			params.add(new BasicNameValuePair("vin",vinId));
 			params.add(new BasicNameValuePair("id",idPetugas));
+			params.add(new BasicNameValuePair("idParkir",LoginActivity.idParkirPetugas));
 			Log.e("JSON : ", params.toString());
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -621,7 +625,7 @@ public class OutOffice  extends ListActivity {
                 	   SharedPreferences settings = getSharedPreferences(
      							LOGIN_CACHE, Context.MODE_PRIVATE);
      							settings.edit().clear().commit();
-                	   Intent i = new Intent(OutOffice.this, LoginActivity.class);
+                	   Intent i = new Intent(checkingOut.this, LoginActivity.class);
 							startActivity(i);
                 	   
                 	   finish();
@@ -635,7 +639,7 @@ public class OutOffice  extends ListActivity {
                })
                .setNeutralButton("Just Exit", new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
-                	   Intent i = new Intent(OutOffice.this, LoginActivity.class);
+                	   Intent i = new Intent(checkingOut.this, LoginActivity.class);
 						startActivity(i);
                        finish();
                    }
@@ -704,7 +708,7 @@ public class OutOffice  extends ListActivity {
 	
 	private void dialogRegister(){
 		builderRegister = new AlertDialog.Builder(this);
-		LayoutInflater inflater = OutOffice.this.getLayoutInflater();
+		LayoutInflater inflater = checkingOut.this.getLayoutInflater();
 
 	    view2 = inflater.inflate(R.layout.register_vin, null);
 	    
@@ -739,7 +743,7 @@ public class OutOffice  extends ListActivity {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			pDialog = new ProgressDialog(OutOffice.this);
+			pDialog = new ProgressDialog(checkingOut.this);
 			pDialog.setMessage("Loading data history. Please wait...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
@@ -825,7 +829,7 @@ public class OutOffice  extends ListActivity {
 					 * Updating parsed JSON data into ListView
 					 * */
 					ListAdapter adapter = new SimpleAdapter(
-							OutOffice.this, productsList,
+							checkingOut.this, productsList,
 							R.layout.list_top, new String[] { TAG_PID, "vin","waktuCheck"}, 
 							new int[] { R.id.pid, R.id.VinNumberList, R.id.Waktunyah}){
 						
@@ -860,7 +864,7 @@ public class OutOffice  extends ListActivity {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			pDialog = new ProgressDialog(OutOffice.this);
+			pDialog = new ProgressDialog(checkingOut.this);
 			pDialog.setMessage("Please wait...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);
@@ -960,7 +964,7 @@ public class OutOffice  extends ListActivity {
 					spinJenis = (Spinner)view2.findViewById(R.id.spinnerMasterJenis);
 					
 					spinnerList.addAll(spinnerItem);
-					ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(OutOffice.this,
+					ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(checkingOut.this,
 							android.R.layout.simple_spinner_item, spinnerList); 
 					dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
 					
@@ -1018,7 +1022,7 @@ public class OutOffice  extends ListActivity {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			pDialog = new ProgressDialog(OutOffice.this);
+			pDialog = new ProgressDialog(checkingOut.this);
 			pDialog.setMessage("Registering, Please Wait...");
 			pDialog.setIndeterminate(false);
 			pDialog.setCancelable(false);

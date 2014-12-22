@@ -104,7 +104,7 @@ public class ActivityStartMaintenance extends ListActivity
 		productsList = new ArrayList<HashMap<String, String>>();
 
 		// Loading products in Background Thread
-		new LoadAllProducts().execute();
+		//new LoadAllProducts().execute();
 
 		txtSearch = (EditText)findViewById(R.id.edit_teks_search_maintanance);
 		txtKeterangan = (EditText)findViewById(R.id.text_keterangan);

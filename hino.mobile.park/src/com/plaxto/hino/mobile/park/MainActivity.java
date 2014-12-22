@@ -122,7 +122,7 @@ public class MainActivity  extends ListActivity {
 		
 		setupViews();
 		productsList = new ArrayList<HashMap<String, String>>();
-		getActionBar().setTitle("Gate Checking : "+ LoginActivity.namaParkirArea);
+		getActionBar().setTitle("Gate In : "+ LoginActivity.namaParkirArea);
 		new LoadHistory().execute();
 		ListView lv = getListView();
 		formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -214,7 +214,7 @@ public class MainActivity  extends ListActivity {
 		
 		Log.e("DATE", currentDateandTime);
 		//txtDate.setText(currentDateandTime);
-		getActionBar().setTitle("Gate Checking : "+ LoginActivity.namaParkirArea);
+		getActionBar().setTitle("Gate In : "+ LoginActivity.namaParkirArea);
 		getActionBar().setSubtitle(currentDateandTime);
 		Button btnSearch=(Button) findViewById(R.id.btnSearch);
 		 if(checkType=="I"){

@@ -72,6 +72,11 @@
             android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
+            android:name=".checkingOut"
+            android:label="Checking Out"
+            android:screenOrientation="sensorPortrait" >
+        </activity>
+        <activity
             android:name=".transferIn"
             android:label="Terima Transfer"
             android:screenOrientation="sensorPortrait" >

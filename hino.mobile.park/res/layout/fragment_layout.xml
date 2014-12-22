@@ -12,18 +12,14 @@
         android:drawableTop="@drawable/btn_newsfeed"
         android:text="PDI Entry" />
 
-    <Button
-        android:id="@+id/btn_places"
-        style="@style/DashboardButton"
-        android:drawableTop="@drawable/btn_places"
-        android:text="PDI Exit" />
+    
     <!-- Friends Button -->
 
     <Button
         android:id="@+id/btn_friends"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/btn_friends"
-        android:text="Transporter Checking" />
+        android:text="Gate Out" />
 
     <!-- Messages Button -->
 
@@ -31,18 +27,14 @@
         android:id="@+id/btn_messages"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/btn_messages"
-        android:text="Gate Checking" />
+        android:text="Gate In" />
 
     <!-- Places Button -->
 
 
     <!-- Events Button -->
 
-    <Button
-        android:id="@+id/btn_events"
-        style="@style/DashboardButton"
-        android:drawableTop="@drawable/btn_events"
-        android:text="Stock Control" />
+    
 
     <!-- Photos Button -->
 
@@ -52,17 +44,9 @@
         android:drawableTop="@drawable/btn_photos"
         android:text="Parking Point" />
 
-    <Button
-        android:id="@+id/btn_transfer_in"
-        style="@style/DashboardButton"
-        android:drawableTop="@drawable/btn_photos"
-        android:text="Transfer Entry Checking" />
+    
 
-    <Button
-        android:id="@+id/btn_transfer_out"
-        style="@style/DashboardButton"
-        android:drawableTop="@drawable/btn_photos"
-        android:text="Transfer Out Checking" />
+   
 
     <Button
         android:id="@+id/button_maintanance"
@@ -83,10 +67,34 @@
         android:text="End Maintanance" />
 
     <Button
+        android:id="@+id/btn_checking_out"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/btn_photos"
+        android:text="Checking Out" />
+    
+    <Button
+        android:id="@+id/btn_places"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/btn_places"
+        android:text="PDI Out" />
+    
+    <Button
+        android:id="@+id/btn_events"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/btn_events"
+        android:text="Stock Control" />
+    
+    <Button
         android:id="@+id/button_"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/btn_photos"
         android:text=""
         android:visibility="invisible" />
-
+     
+	<Button
+        android:id="@+id/btn_transfer_in"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/btn_photos"
+        android:text="Transfer Entry Checking"
+        android:visibility="invisible" />
 </com.plaxto.hino.mobile.park.DashboardLayout>
